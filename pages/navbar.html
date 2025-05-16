@@ -1,0 +1,50 @@
+<!-- pages/navbar.html -->
+<link rel="stylesheet" href="../styles/navbar_style.css">
+<nav class="navbar">
+    <div class="navbar-content">
+
+        <div class="hamburger-menu"> <!-- For mobile -->
+            <button id="hamburger-button" aria-label="Open navigation menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="nav-logo">
+            <a href="#home">
+                <span class="logo-text">
+                    <span class="bracket">&lt;</span>
+                    <span class="name">Mahadie</span>
+                    <span class="bracket">/&gt;</span>
+                </span>
+            </a>
+        </div>
+
+        <ul class="nav-links desktop-nav-links"> <!-- For desktop -->
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#resume" class="nav-link">Resume</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="theme-switcher"> <!-- Theme switcher at the end -->
+            <button id="theme-toggle-button" aria-label="Toggle theme">
+                <img src="../assets/images/moon.svg" alt="Theme toggle icon" id="theme-icon" class="theme-icon-svg">
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Mobile Navigation Sidebar - initially hidden by CSS -->
+    <div class="mobile-nav-sidebar" id="mobile-nav-sidebar">
+        <button class="close-sidebar-button" id="close-sidebar-button" aria-label="Close navigation menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="nav-link mobile-link">Home</a></li>
+            <li><a href="#projects" class="nav-link mobile-link">Projects</a></li>
+            <li><a href="#resume" class="nav-link mobile-link">Resume</a></li>
+            <li><a href="#contact" class="nav-link mobile-link">Contact</a></li>
+        </ul>
+    </div>
+    <div class="nav-overlay" id="nav-overlay"></div> <!-- Overlay, initially hidden -->
+</nav>

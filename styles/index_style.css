@@ -1,0 +1,268 @@
+/* styles/index_style.css */
+:root {
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-code: 'Courier New', Courier, monospace;
+
+    /* Light Theme Variables */
+    --bg-color: #f4f7f6;
+    --bg-color-rgb: 244, 247, 246;
+    --text-color: #333333;
+    --secondary-text-color: #555555;
+    --card-bg-color: #ffffff;
+    --card-bg-color-rgb: 255, 255, 255;
+    --border-color: #dddddd;
+    --accent-color: #40E0D0;
+    --accent-color-hover: #30c0b0;
+    --accent-text-color: #1a1d24;
+    /* Dark text for on-accent-bg elements */
+    --section-title-color: #40E0D0;
+    --icon-color: #333333;
+    --input-bg-color: #ffffff;
+    --input-border-color: #cccccc;
+    --input-text-color: #333333;
+    --placeholder-color: #999999;
+    --skill-tag-bg: #e9ecef;
+    --skill-tag-text: #495057;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --code-block-bg: #e8e8e8;
+    --code-text-color: #333;
+    --code-keyword-color: #007bff;
+    --code-string-color: #44B871;
+    /* UPDATED: Greenish for strings like "Software Engineer" */
+    --code-comment-color: #505050;
+    /* UPDATED: Darker grey for comments in light mode */
+    --neumorphic-shadow-light: -6px -6px 12px rgba(255, 255, 255, 0.8);
+    --neumorphic-shadow-dark: 6px 6px 12px rgba(0, 0, 0, 0.1);
+    --skill-card-bg: #f0f0f0;
+    --navbar-height: 65px;
+    --logo-bracket-color: var(--accent-color);
+    --logo-name-color: #1a1d24;
+}
+
+.dark-theme {
+    --bg-color: #1a1d24;
+    --bg-color-rgb: 26, 29, 36;
+    --text-color: #e0e0e0;
+    --secondary-text-color: #a0a0a0;
+    --card-bg-color: #252932;
+    --card-bg-color-rgb: 37, 41, 50;
+    --border-color: #3a3f4c;
+    --accent-color: #40E0D0;
+    --accent-color-hover: #30c0b0;
+    --accent-text-color: #1a1d24;
+    --section-title-color: #40E0D0;
+    --icon-color: #e0e0e0;
+    --input-bg-color: #2c313a;
+    --input-border-color: #3a3f4c;
+    --input-text-color: #e0e0e0;
+    --placeholder-color: #777777;
+    --skill-tag-bg: #3a3f4c;
+    --skill-tag-text: #c0c0c0;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --code-block-bg: #20232a;
+    --code-text-color: #e0e0e0;
+    --code-keyword-color: #61dafb;
+    --code-string-color: #44B871;
+    /* UPDATED: Consistent greenish for strings */
+    --code-comment-color: #7f848e;
+    /* This was okay for dark mode */
+    --neumorphic-shadow-light: -6px -6px 12px rgba(40, 45, 55, 0.5);
+    --neumorphic-shadow-dark: 6px 6px 12px rgba(10, 12, 15, 0.5);
+    --skill-card-bg: #252932;
+    --logo-bracket-color: var(--accent-color);
+    --logo-name-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: var(--navbar-height);
+}
+
+#main-content-area {
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 1rem;
+    color: var(--section-title-color);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title::before {
+    content: "//";
+    color: var(--accent-color);
+    margin-right: 0.5em;
+    font-weight: normal;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light);
+    transition: box-shadow 0.3s ease;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    /* Slightly more rounded for neumorphic */
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    border: none;
+    cursor: pointer;
+    /* Base neumorphic shadow for buttons that are not .button-secondary or special hero buttons */
+    box-shadow: var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light);
+}
+
+.button:hover {
+    background-color: var(--accent-color-hover);
+    color: var(--accent-text-color);
+    /* Hover shadow for general buttons if desired, or handled by specific button styles */
+}
+
+.button-secondary {
+    background-color: var(--skill-card-bg);
+    /* Match skill card bg for consistency */
+    color: var(--accent-color);
+    border: none;
+    /* Remove border for neumorphic */
+    /* box-shadow inherited from .button or define specifically */
+}
+
+.button-secondary:hover {
+    /* background-color: var(--accent-color); */
+    /* No background change for this type of hover */
+    /* color: var(--accent-text-color); */
+    /* Hover shadow defined in home_style.css for hero buttons */
+}
+
+.button img.icon-svg,
+.button i {
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.icon-svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    vertical-align: -0.125em;
+}
+
+.content-section {
+    padding: 40px 0;
+    margin-bottom: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.tech-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tech-tag {
+    background-color: var(--skill-tag-bg);
+    color: var(--skill-tag-text);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px var(--shadow-color),
+        0 0 0 3px var(--accent-color),
+        var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light);
+}

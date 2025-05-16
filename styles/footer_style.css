@@ -1,0 +1,14 @@
+/* styles/footer_style.css */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--card-bg-color); /* Same as navbar for consistency */
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+    font-size: 0.9em;
+    margin-top: auto; /* Pushes footer to bottom if content is short */
+}
+
+.footer p {
+    margin-bottom: 5px;
+}

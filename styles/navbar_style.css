@@ -1,0 +1,266 @@
+/* styles/navbar_style.css */
+.navbar {
+    padding: 0;
+    height: var(--navbar-height);
+    background-color: rgba(var(--card-bg-color-rgb), 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: background-color 0.3s ease;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    justify-content: space-between;
+}
+
+/* Default Order and Visibility (Desktop First) */
+.nav-logo {
+    order: 1;
+    /* border: 1px dashed lime; */
+    flex: 0 0 auto;
+}
+
+.desktop-nav-links {
+    order: 2;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centers the navbar absolutely in the middle */
+    /* border: 1px dashed orange; */
+}
+
+.theme-switcher {
+    order: 3;
+    margin-left: auto;
+    /* Push to the end instead of fixed margin */
+    position: relative;
+    z-index: 5;
+    flex: 0 0 auto;
+    /* border: 2px solid red !important; */
+}
+
+.hamburger-menu {
+    order: 4;
+    /* Not relevant when display: none */
+    display: none;
+    /* border: 1px dashed cyan; */
+}
+
+
+.nav-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Logo text styling */
+.logo-text {
+    font-family: monospace, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text .bracket {
+    color: var(--accent-color);
+}
+
+.logo-text .name {
+    color: var(--text-color);
+    margin: 0 2px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color);
+}
+
+.desktop-nav-links .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.theme-switcher button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    /* border: 2px solid blue !important; */
+}
+
+.theme-icon-svg {
+    width: 24px;
+    height: 24px;
+    color: var(--icon-color);
+    transition: color 0.3s ease;
+}
+
+.theme-switcher button:hover .theme-icon-svg {
+    color: var(--accent-color);
+}
+
+/* Mobile Navigation Sidebar - CRITICAL: Initially hidden */
+.mobile-nav-sidebar {
+    position: fixed;
+    top: 0;
+    right: -285px;
+    /* Start fully off-screen (width + a bit extra) */
+    width: 280px;
+    height: 100vh;
+    background-color: var(--card-bg-color);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    padding-top: calc(var(--navbar-height) + 20px);
+    transition: right 0.3s ease-in-out;
+    z-index: 1003;
+    overflow-y: auto;
+    visibility: hidden;
+    /* Initially hidden for sure */
+}
+
+.mobile-nav-sidebar.active {
+    right: 0;
+    /* Slide in */
+    visibility: visible;
+    /* Make visible when active */
+}
+
+.close-sidebar-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--icon-color);
+    cursor: pointer;
+    z-index: 1004;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav-links li {
+    margin-bottom: 10px;
+}
+
+.mobile-nav-links .nav-link {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+.mobile-nav-links .nav-link:hover,
+.mobile-nav-links .nav-link.active {
+    background-color: var(--skill-card-bg);
+    color: var(--accent-color);
+}
+
+/* Overlay - CRITICAL: Initially hidden */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    /* Ensure it's hidden by default */
+    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+    /* Delay visibility until opaque */
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0s;
+}
+
+
+/* --- Mobile Navigation Styles (e.g., below 768px) --- */
+@media (max-width: 768px) {
+    .navbar-content {
+        justify-content: space-between;
+    }
+
+    .desktop-nav-links {
+        display: none;
+    }
+
+    .theme-switcher {
+        order: 1;
+        margin-left: 0;
+        z-index: 5;
+    }
+
+    .nav-logo {
+        order: 2;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        order: 3;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .hamburger-menu button {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--icon-color);
+        cursor: pointer;
+        padding: 0.5rem;
+        width: 40px;
+        height: 40px;
+    }
+}

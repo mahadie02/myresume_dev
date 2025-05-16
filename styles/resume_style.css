@@ -1,0 +1,546 @@
+/* styles/resume_style.css */
+.resume-container {
+    padding-top: 20px;
+}
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.resume-header-text .main-resume-title {
+    font-size: 2.8rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.resume-header-text .main-resume-title::before {
+    content: none;
+}
+
+.resume-header-text .resume-subtitle {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+}
+
+/* Download PDF Button Text & Icon Color */
+#download-pdf-button {
+    background-color: var(--accent-color);
+}
+
+.light-theme #download-pdf-button {
+    color: #1a1d24;
+    /* Black text in light mode */
+}
+
+.dark-theme #download-pdf-button {
+    color: #ffffff;
+    /* White text in dark mode */
+}
+
+.light-theme #download-pdf-button img.icon-svg {
+    filter: invert(1) brightness(0);
+    /* Makes SVG black */
+}
+
+.dark-theme #download-pdf-button img.icon-svg {
+    filter: brightness(0) invert(1);
+    /* Makes SVG white */
+}
+
+hr.resume-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin-bottom: 30px;
+}
+
+#resume-content-to-pdf {
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Resume Intro Section with Profile Picture */
+.resume-intro {
+    display: flex;
+    flex-direction: column;
+    /* ENSURES IMAGE IS ABOVE TEXT BLOCK */
+    align-items: center;
+    /* Centers the image and the text block horizontally */
+    margin-bottom: 40px;
+}
+
+.profile-picture-container {
+    margin-bottom: 20px;
+    /* Space between image and the text block */
+    /* Centering of the image itself is handled by align-items on .resume-intro */
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--card-bg-color);
+    box-shadow: var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light);
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
+}
+
+.profile-pic:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow:
+        0px 6px 12px -3px var(--accent-color),
+        var(--neumorphic-shadow-dark),
+        var(--neumorphic-shadow-light);
+}
+
+.intro-text-container {
+    text-align: center;
+    /* Centers the text within this block */
+}
+
+.resume-intro h2 {
+    /* Name */
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.resume-intro h2::before {
+    content: none;
+}
+
+.resume-intro .software-engineer-title {
+    /* "Software Engineer" */
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.resume-intro .tech-stack-summary {
+    /* "<Python,Flutter,Full Stack/>" */
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    font-family: var(--font-code);
+}
+
+/* Responsive layout adjustments for intro section IF NEEDED for text alignment, not overall layout */
+@media (min-width: 768px) {
+    /* If you want text to align left on larger screens, while image remains centered above */
+    /* .intro-text-container {
+        text-align: left;
+    } */
+    /* However, the image provided shows centered text even on wider views for this block */
+}
+
+
+.resume-section {
+    margin-bottom: 30px;
+}
+
+.resume-section-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--section-title-color);
+}
+
+.resume-section-title::before {
+    content: none;
+}
+
+.resume-section-icon {
+    margin-right: 0.5em;
+    color: var(--accent-color);
+    font-size: 0.9em;
+}
+
+.resume-card {
+    padding: 20px;
+}
+
+.resume-card:hover {
+    transform: none;
+    box-shadow: var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light);
+}
+
+/* Skills Section in Resume */
+.resume-skills-grid {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 15px;
+}
+
+.resume-skills-grid .skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+    background-color: var(--skill-card-bg);
+    border-radius: 12px;
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light);
+}
+
+.resume-skills-grid .skill-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0px 5px 10px -2px var(--accent-color),
+        var(--neumorphic-shadow-dark),
+        var(--neumorphic-shadow-light);
+}
+
+.resume-skills-grid .skill-icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.resume-skills-grid .skill-card .skill-icon.fas {
+    font-size: 30px;
+    line-height: 35px;
+    color: var(--icon-color);
+    margin-bottom: 10px;
+}
+
+.resume-skills-grid .skill-card p {
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 0.85em;
+}
+
+.dark-theme .resume-skills-grid .skill-icon.custom-icon {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Education & Experience Cards */
+.education-experience-card h4 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.education-experience-card h4::before {
+    content: none;
+}
+
+.education-experience-card .institution-date {
+    font-size: 0.9em;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.education-experience-card ul {
+    list-style-position: outside;
+    padding-left: 20px;
+    margin-top: 5px;
+    color: var(--secondary-text-color);
+}
+
+.education-experience-card ul li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+
+/* Connect With Me Section */
+.connect-grid-container {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+}
+
+.connect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.connect-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+    background-color: var(--skill-card-bg);
+    border-radius: 12px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease-out, color 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light);
+}
+
+.connect-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0px 5px 10px -2px var(--accent-color),
+        var(--neumorphic-shadow-dark),
+        var(--neumorphic-shadow-light);
+    color: var(--text-color);
+}
+
+.connect-icon.skill-icon-like {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+    object-fit: contain;
+    color: var(--accent-color);
+    /* This will now apply the accent color to SVGs using fill="currentColor" */
+    filter: none;
+}
+
+.light-theme .connect-icon.skill-icon-like {
+    filter: none;
+    color: #1a1d24;
+}
+
+.dark-theme .connect-icon.skill-icon-like {
+    filter: brightness(0) invert(1);
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .resume-intro h2 {
+        font-size: 1.8rem;
+    }
+
+    .resume-intro .software-engineer-title {
+        font-size: 1.3rem;
+    }
+
+    .resume-intro .tech-stack-summary {
+        font-size: 0.9rem;
+    }
+
+    .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .resume-header-text .main-resume-title {
+        font-size: 2.2rem;
+    }
+
+    .resume-skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 12px;
+    }
+
+    .resume-skills-grid .skill-card {
+        padding: 12px;
+    }
+
+    .resume-skills-grid .skill-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .resume-skills-grid .skill-card .skill-icon.fas {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .connect-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 12px;
+    }
+
+    .connect-card {
+        padding: 12px;
+    }
+
+    .connect-icon.skill-icon-like {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .resume-skills-grid,
+    .connect-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* PDF generation styles */
+.pdf-generating .navbar,
+.pdf-generating #navbar-container,
+.pdf-generating .footer,
+.pdf-generating #footer-container,
+.pdf-generating .resume-header,
+.pdf-generating hr.resume-divider {
+    display: none !important;
+}
+
+.pdf-generating #main-content-area {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pdf-generating body {
+    padding-top: 0 !important;
+}
+
+/* PDF intro section layout */
+.pdf-generating .resume-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    /* Image above text for PDF consistency */
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+    /* Reduced gap for PDF */
+}
+
+.pdf-generating .profile-picture-container {
+    margin-bottom: 10px !important;
+    /* PDF specific spacing */
+    margin-right: 0 !important;
+    /* Ensure no side margin */
+}
+
+.pdf-generating .profile-pic {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.pdf-generating .intro-text-container {
+    text-align: center !important;
+    /* Ensure text within this block is centered for PDF */
+}
+
+.pdf-generating .resume-intro h2 {
+    font-size: 1.8rem !important;
+}
+
+.pdf-generating .resume-intro .software-engineer-title {
+    font-size: 1.2rem !important;
+}
+
+.pdf-generating .resume-intro .tech-stack-summary {
+    font-size: 0.9rem !important;
+}
+
+/* Background and content styling for PDF in light/dark modes */
+body.light-theme.pdf-generating,
+body.light-theme.pdf-generating #resume-content-to-pdf {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-theme.pdf-generating,
+body.dark-theme.pdf-generating #resume-content-to-pdf {
+    background-color: #1a1d24 !important;
+    /* Using explicit dark color instead of var */
+    color: #ffffff !important;
+}
+
+body.dark-theme.pdf-generating #resume-content-to-pdf * {
+    border-color: var(--border-color) !important;
+}
+
+.pdf-generating .resume-skills-grid .skill-card,
+.pdf-generating .resume-skills-grid .skill-card:hover,
+.pdf-generating .connect-grid .connect-card,
+.pdf-generating .connect-grid .connect-card:hover {
+    box-shadow: var(--neumorphic-shadow-dark), var(--neumorphic-shadow-light) !important;
+    transform: none !important;
+    border: none !important;
+}
+
+body.dark-theme.pdf-generating #resume-content-to-pdf .card,
+body.dark-theme.pdf-generating #resume-content-to-pdf .connect-card {
+    background-color: #2a2f3b !important;
+    /* Explicit dark card color */
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+body.light-theme.pdf-generating #resume-content-to-pdf .card,
+body.light-theme.pdf-generating #resume-content-to-pdf .connect-card {
+    background-color: var(--card-bg-color) !important;
+    color: var(--text-color) !important;
+    box-shadow: none !important;
+}
+
+body.dark-theme.pdf-generating #resume-content-to-pdf .institution-date,
+body.dark-theme.pdf-generating #resume-content-to-pdf .resume-intro .software-engineer-title,
+body.dark-theme.pdf-generating #resume-content-to-pdf .resume-section-icon {
+    color: var(--accent-color) !important;
+}
+
+body.light-theme.pdf-generating #resume-content-to-pdf .resume-section-icon {
+    color: var(--accent-color) !important;
+}
+
+/* Fix for connect icons in PDF */
+body.light-theme.pdf-generating .connect-icon.skill-icon-like {
+    filter: none !important;
+    color: #1a1d24 !important;
+}
+
+body.dark-theme.pdf-generating .connect-icon.skill-icon-like {
+    filter: brightness(0) invert(1) !important;
+    color: #ffffff !important;
+}
+
+/* PDF dark background overlay for html2pdf workaround */
+.pdf-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1d24 !important;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Page break control for PDF generation */
+.pdf-generating #resume-skills {
+    page-break-after: always;
+    margin-bottom: 0 !important;
+}
+
+.pdf-generating #resume-education {
+    /* Remove page-break-before to prevent blank page */
+    margin-top: 0 !important;
+}
+
+.pdf-generating .resume-section {
+    page-break-inside: avoid;
+}

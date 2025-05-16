@@ -1,0 +1,198 @@
+/* styles/contact_style.css */
+.contact-container {
+    padding-top: 20px;
+    max-width: 800px;
+    /* Centered and not too wide */
+    margin: 0 auto;
+}
+
+.contact-container .section-title {
+    /* Uses global styling */
+}
+
+.contact-container .section-subtitle {
+    /* Uses global styling */
+    margin-bottom: 50px;
+}
+
+.contact-form-card {
+    padding: 30px;
+}
+
+.contact-form-card:hover {
+    /* Disable card hover for form */
+    transform: none;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+
+.contact-form-title {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    text-align: left;
+    /* Override centered section-title if it inherited that */
+    color: var(--text-color);
+}
+
+.contact-form-title::before {
+    content: none;
+}
+
+/* No // */
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group textarea::placeholder {
+    color: var(--placeholder-color);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color-hover-transparent, rgba(64, 224, 208, 0.3));
+    /* Use a transparent version of accent color for focus */
+}
+
+/* Define --accent-color-hover-transparent in :root and .dark-theme if needed */
+:root {
+    --accent-color-hover-transparent: rgba(0, 123, 255, 0.3);
+}
+
+.dark-theme {
+    --accent-color-hover-transparent: rgba(64, 224, 208, 0.3);
+}
+
+
+.form-group textarea {
+    resize: vertical;
+    /* Allow vertical resize only */
+    min-height: 120px;
+}
+
+.char-count {
+    display: block;
+    text-align: right;
+    font-size: 0.85em;
+    color: var(--secondary-text-color);
+    margin-top: 5px;
+}
+
+.send-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+.dark-theme .send-button {
+    color: white;
+}
+
+.light-theme .send-button {
+    color: black;
+}
+
+.send-button img.icon-svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.dark-theme .send-button img.icon-svg {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(130deg) brightness(105%) contrast(102%);
+    /* Makes it black */
+}
+
+.light-theme .send-button img.icon-svg {
+    filter: none;
+}
+
+@media (max-width: 600px) {
+    .contact-form-card {
+        padding: 20px;
+    }
+
+    .contact-form-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* Notification Popup */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    width: 280px;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification.show {
+    right: 20px;
+}
+
+.notification-message {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-close:hover {
+    color: var(--text-color);
+}
+
+@media (max-width: 400px) {
+    .notification {
+        width: 90%;
+        max-width: 280px;
+    }
+}

@@ -1,0 +1,155 @@
+<!-- pages/resume.html -->
+<div class="resume-container content-section">
+    <div class="resume-header">
+        <div class="resume-header-text">
+            <h1 class="main-resume-title">My Resume</h1>
+            <p class="resume-subtitle">Download a copy of my professional summary.</p>
+        </div>
+        <button id="download-pdf-button" class="button">
+            Download PDF <img src="../assets/images/download_icon.svg" alt="Download icon" class="icon-svg">
+        </button>
+    </div>
+    <hr class="resume-divider">
+
+    <div id="resume-content-to-pdf">
+        <section class="resume-intro"> <!-- Removed text-center from here, will handle in children -->
+            <div class="profile-picture-container">
+                <img src="../assets/images/profile-light.jpg" alt="Md Rezaul Hasan Mahadie" id="profile-picture"
+                    class="profile-pic">
+            </div>
+            <div class="intro-text-container">
+                <h2>Md Rezaul Hasan Mahadie</h2>
+                <p class="software-engineer-title">Software Engineer</p>
+                <p class="tech-stack-summary">
+                    < Python,Flutter,Full Stack />
+                </p>
+            </div>
+        </section>
+
+        <!-- ... rest of the resume sections (About, Skills, Education, Experience, Connect) remain the same ... -->
+        <section class="resume-section" id="resume-about">
+            <h3 class="section-title resume-section-title">
+                <i class="fas fa-user-circle resume-section-icon"></i> About Me
+            </h3>
+            <div class="card resume-card">
+                <p>I'm a full stack developer with 3+ years of hands-on experience building responsive web and mobile
+                    apps using Python, JavaScript, HTML5, Tailwind CSS, and Flutter. I specialize in crafting clean code
+                    and smooth user experiences with a strong focus on performance and modern design.</p>
+            </div>
+        </section>
+
+        <section class="resume-section" id="resume-skills">
+            <h3 class="section-title resume-section-title">
+                <i class="fas fa-star resume-section-icon"></i> Skills
+            </h3>
+            <div class="skills-grid resume-skills-grid card resume-card">
+                <div class="skill-card card">
+                    <img src="../assets/images/python.svg" alt="Python" class="skill-icon" />
+                    <p>Python</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/javascript.svg" alt="JavaScript" class="skill-icon" />
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/html5.svg" alt="HTML5" class="skill-icon" />
+                    <p>HTML5</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/tailwind-css.svg" alt="Tailwind CSS" class="skill-icon" />
+                    <p>Tailwind CSS</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/flutter.svg" alt="Flutter" class="skill-icon" />
+                    <p>Flutter</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/dart.svg" alt="Dart" class="skill-icon" />
+                    <p>Dart</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/fastapi.svg" alt="FastAPI" class="skill-icon" />
+                    <p>FastAPI</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/django.svg" alt="Django" class="skill-icon" />
+                    <p>Django</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/flask.svg" alt="Flask" class="skill-icon" />
+                    <p>Flask</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/firebase.svg" alt="Firebase" class="skill-icon" />
+                    <p>Firebase</p>
+                </div>
+                <div class="skill-card card">
+                    <img src="../assets/images/ui-ux.svg" alt="UI/UX Design" class="skill-icon" />
+                    <p>UI/UX Design</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section" id="resume-education">
+            <h3 class="section-title resume-section-title">
+                <i class="fas fa-graduation-cap resume-section-icon"></i> Education
+            </h3>
+            <div class="card resume-card education-experience-card">
+                <h4>B.Sc in CSE</h4>
+                <p class="institution-date">RUET | 2019 - 2025</p>
+                <h4>School & College</h4>
+                <p class="institution-date">Barisal Cadet College (BCC) | 2012 - 2018</p>
+            </div>
+        </section>
+
+        <section class="resume-section" id="resume-experience">
+            <h3 class="section-title resume-section-title">
+                <i class="fas fa-briefcase resume-section-icon"></i> Experience
+            </h3>
+            <div class="card resume-card education-experience-card">
+                <h4>Freelance Python Developer</h4>
+                <p class="institution-date">Online Marketplace | Jan 2022 - Present</p>
+                <ul>
+                    <li>Engineered and integrated Xero API solutions for comprehensive business management applications.
+                    </li>
+                    <li>Developed and deployed robust web applications using Django and Flask frameworks.</li>
+                    <li>Integrated AI-powered chatbot functionalities, similar to ChatGPT, into web applications to
+                        serve as intelligent virtual assistants.</li>
+                </ul>
+                <h4 class="mt-2">University Project</h4>
+                <p class="institution-date">RUET | 2023 - 2024</p>
+                <ul>
+                    <li>Developed a Django-based application for the automated allocation of students to academic
+                        supervisors.</li>
+                    <li>Utilized Python's Pandas library for data analysis and processing of DOCX and Excel files.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="resume-section" id="resume-connect">
+            <h3 class="section-title resume-section-title">
+                <i class="fas fa-share-alt resume-section-icon"></i> Connect With Me
+            </h3>
+            <div class="connect-grid-container card resume-card">
+                <div class="connect-grid">
+                    <a href="https://github.com/mahadie02" target="_blank" class="connect-card card">
+                        <img src="../assets/images/github_icon.svg" alt="GitHub" class="connect-icon skill-icon-like" />
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/mahadie-dev/" target="_blank" class="connect-card card">
+                        <img src="../assets/images/linkedin_icon.svg" alt="LinkedIn"
+                            class="connect-icon skill-icon-like" /> LinkedIn
+                    </a>
+                    <a href="mailto:mahadie02@gmail.com" class="connect-card card">
+                        <img src="../assets/images/email_icon.svg" alt="Email" class="connect-icon skill-icon-like" />
+                        Email
+                    </a>
+                    <a href="http://wa.me/+8801402249426" target="_blank" class="connect-card card">
+                        <img src="../assets/images/whatsapp_icon.svg" alt="WhatsApp"
+                            class="connect-icon skill-icon-like" /> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div> <!-- End of resume-content-to-pdf -->
+</div>

@@ -1,0 +1,220 @@
+/* styles/projects_style.css */
+.projects-container {
+    padding-top: 20px;
+}
+
+.projects-container section {
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    /* Increased from 260px to 320px for wider cards in desktop view */
+    gap: 30px;
+    /* Increased gap for better visual separation */
+    margin-top: 30px;
+}
+
+/* Specific grid for "Other Projects" if you want it to behave differently, e.g., fewer columns if only one item */
+.other-projects-grid {
+    /* If you usually have only one "Other Project", you might want to center it or limit its width */
+    /* For example, to center a single card: */
+    /* justify-content: center; */
+    /* Or to make it not span full width if only one: */
+    /* grid-template-columns: minmax(300px, 400px); */
+    /* Example: card between 300px and 400px */
+    /* For now, it will behave like other project grids. Adjust if you have 1 item and want it smaller. */
+}
+
+
+.project-card {
+    /* .card class for base neumorphic is in HTML now */
+    /* background-color: var(--card-bg-color); No, use skill-card-bg for consistency */
+    background-color: var(--skill-card-bg);
+    /* Match skill card background */
+    /* border: 1px solid var(--border-color); Remove, rely on shadow */
+    border-radius: 15px;
+    /* Match skill card radius */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
+    /* Add cursor pointer */
+    /* Base neumorphic shadow is inherited from .card class in index_style.css */
+    max-width: 450px;
+    /* Increased from 400px to 450px for desktop */
+    width: 100%;
+    /* Ensure it uses available space */
+    margin: 0 auto;
+    /* Center cards within their grid area */
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    /* Same transform as skill cards */
+    /* Bottom edge glow with accent color + maintaining base neumorphic shadows */
+    box-shadow:
+        0px 6px 12px -3px var(--accent-color),
+        /* Accent glow at the bottom */
+        var(--neumorphic-shadow-dark),
+        var(--neumorphic-shadow-light);
+}
+
+.project-image {
+    width: 100%;
+    height: 150px;
+    /* Further reduced from 160px to 150px */
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+    /* Keep border for image separation */
+    border-top-left-radius: 12px;
+    /* Rounded corners for top of image */
+    border-top-right-radius: 12px;
+}
+
+.project-content {
+    padding: 14px;
+    /* Reduced from 16px for more compact cards */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    /* Reduced from 1.3rem */
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.project-title::before {
+    content: none;
+}
+
+.project-description {
+    font-size: 0.85rem;
+    /* Reduced from 0.9rem */
+    color: var(--secondary-text-color);
+    margin-bottom: 12px;
+    flex-grow: 1;
+    line-height: 1.4;
+}
+
+.project-links {
+    margin-top: auto;
+    padding-top: 10px;
+    /* Reduced from 12px */
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    font-size: 0.85em;
+    /* Reduced from 0.9em */
+    padding: 6px 12px;
+    /* Reduced from 8px 15px */
+}
+
+.project-link i {
+    margin-right: 6px;
+}
+
+/* Tech tags styling - using more specific selectors to override main CSS */
+.projects-container .tech-tag,
+.tech-tag-list .tech-tag,
+.project-content .tech-tag {
+    padding: 3px 7px !important;
+    /* Reduced from 4px 8px */
+    border-radius: 4px !important;
+    font-size: 0.75em !important;
+    /* Reduced from 0.8em */
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+/* Light mode tech tags styling */
+:root:not(.dark-theme) .projects-container .tech-tag,
+:root:not(.dark-theme) .tech-tag-list .tech-tag,
+:root:not(.dark-theme) .project-content .tech-tag {
+    background-color: #e8eaed !important;
+    /* Light gray background for light mode */
+    color: #333333 !important;
+    /* Dark gray text for light mode */
+    border: 1px solid #d0d0d0 !important;
+    /* Subtle border in light mode */
+}
+
+/* Dark mode tech tags styling */
+.dark-theme .projects-container .tech-tag,
+.dark-theme .tech-tag-list .tech-tag,
+.dark-theme .project-content .tech-tag {
+    background-color: #303030 !important;
+    /* Dark background for dark mode */
+    color: #ffffff !important;
+    /* White text for dark mode */
+    border: 1px solid #444444 !important;
+    /* Subtle border in dark mode */
+}
+
+.projects-container .tech-tag:hover,
+.tech-tag-list .tech-tag:hover,
+.project-content .tech-tag:hover {
+    transform: translateY(-1px) !important;
+    background-color: var(--accent-color) !important;
+    color: var(--accent-text-color) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        /* Reduced from 320px for tablet view */
+        gap: 20px;
+    }
+
+    .project-image {
+        height: 140px;
+        /* Reduced from 150px */
+    }
+
+    .project-title {
+        font-size: 1.1rem;
+        /* Reduced from 1.2rem */
+    }
+
+    .project-card {
+        max-width: 330px;
+        /* Smaller max-width for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Single column */
+        gap: 16px;
+        /* Reduced gap for mobile */
+    }
+
+    .project-image {
+        height: 130px;
+        /* Reduced from 140px */
+    }
+
+    .project-card {
+        max-width: 300px;
+        /* Even smaller for mobile phones */
+    }
+
+    .project-content {
+        padding: 12px;
+        /* Further reduced padding for mobile */
+    }
+
+    .project-description {
+        font-size: 0.8rem;
+        /* Smaller text for mobile */
+    }
+}
